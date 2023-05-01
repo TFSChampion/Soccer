@@ -1,4 +1,5 @@
 from ev3dev2.motor import Motor, OUTPUT_A, OUTPUT_B
+import math
 
 class Bot:
 
@@ -20,10 +21,14 @@ class Bot:
 
             print(f"Hello, my name is {self.name} and I am not the leader.")
 
-    def move_distance(self, delta_x, delta_y):
+    def move_distance(self, delta_x : float, delta_y : float, speed: float):
 
-        pass
+        theta = math.atan(delta_y/delta_x)
 
-    def move_theta(self, delta_p, theta):
+        delta_p = math.sqrt(delta_x**2 + delta_y**2)
+
+        self.move_theta(self, delta_p, theta, speed)
+
+    def move_theta(self, delta_p : float, theta : float, speed : float):
 
         pass
