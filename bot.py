@@ -27,7 +27,11 @@ class Bot:
 
     def get_ball_pos(self):
 
+        d = None
+
         r_left = self.ir_left.distance()
         r_right = self.r_right.distance()
+
+        theta = math.acos((d**2+r_left**2-r_right**2)/(2*d*r_left))*(180/math.pi)
 
         
