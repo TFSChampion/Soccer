@@ -32,6 +32,9 @@ class Bot:
         r_left = self.ir_left.distance()
         r_right = self.r_right.distance()
 
-        theta = math.acos((d**2+r_left**2-r_right**2)/(2*d*r_left))*(180/math.pi)
+        theta = 90 - (math.acos((d**2+r_left**2-r_right**2)/(2*d*r_left))*(180/math.pi))
 
-        
+        delta_x = math.sin(theta)*r_left
+        delta_y = math.cos(theta)*r_left
+
+        return (delta_x, delta_y)
