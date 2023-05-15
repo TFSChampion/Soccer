@@ -10,8 +10,8 @@ class Bot:
         self.name = name
         self.leader = bool
 
-        self.ir_front = devices.InfraredSensor(Port.S1)
-        self.ir_back = devices.InfraredSensor(Port.S2)
+        self.ir_right = devices.InfraredSensor(Port.S1)
+        self.ir_left = devices.InfraredSensor(Port.S2)
 
     def move_distance(self, delta_x : float, delta_y : float, speed: int):
 
@@ -27,15 +27,7 @@ class Bot:
 
     def get_ball_pos(self):
 
-        pos_front = self.ir_front.distance()
-        pos_back = self.ir_back.distance()
+        r_left = self.ir_left.distance()
+        r_right = self.r_right.distance()
 
-        delta = pos_back-pos_front
-
-        try:
-            
-            return delta/abs(delta)
         
-        except ZeroDivisionError:
-
-            return 0
