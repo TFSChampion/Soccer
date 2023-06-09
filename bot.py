@@ -12,7 +12,7 @@ class Bot:
         self.ir_right = devices.InfraredSensor(Port.S1)
         self.ir_left = devices.InfraredSensor(Port.S4)
 
-        if goalie:
+        if not goalie:
 
             self.mo_front = devices.Motor(Port.A)
             self.mo_back = devices.Motor(Port.B)
